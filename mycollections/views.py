@@ -34,8 +34,10 @@ class CollectionCreateView(CreateView):
     def get_context_data(self, **kwargs):
         data = super(CollectionCreateView, self).get_context_data(**kwargs)
         if self.request.POST:
+            print("--post--")
             data['titles'] = CollectionTitleFormSet(self.request.POST)
         else:
+            print("--not   post--")
             data['titles'] = CollectionTitleFormSet()
         return data
 

@@ -13,3 +13,8 @@ https://stackoverflow.com/questions/15157262/django-crispy-forms-nesting-a-forms
 
 
 https://github.com/elo80ka/django-dynamic-formset
+
+
+
+# .env file:
+SECRET_KEY=some_very_long_secret_string
