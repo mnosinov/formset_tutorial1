@@ -3,6 +3,7 @@ from django.db import transaction
 from django.views.generic import TemplateView
 from django.views.generic.detail import DetailView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
+from django.contrib.auth.models import AnonymousUser
 
 from .models import Collection
 from .forms import CollectionTitleFormSet, CollectionForm
@@ -45,7 +46,7 @@ class CollectionCreateView(CreateView):
         context = self.get_context_data()
         titles = context['titles']
         with transaction.atomic():
-            form.instance.created_by = self.request.user
+            # form.instance.created_by = self.request.user
             self.object = form.save()
             if titles.is_valid():
                 titles.instance = self.object
@@ -74,7 +75,7 @@ class CollectionUpdateView(UpdateView):
         context = self.get_context_data()
         titles = context['titles']
         with transaction.atomic():
-            form.instance.created_by = self.request.user
+        # form.instance.created_by = self.request.user
             self.object = form.save()
             if titles.is_valid():
                 titles.instance = self.object
